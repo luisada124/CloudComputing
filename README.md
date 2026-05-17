@@ -35,7 +35,6 @@ After deploying the `smartstudy-rag-chat` service, you can ask questions from th
 
 Example:
 
-```bash
 curl -s -X POST "https://smartstudy-rag-chat-806559489994.europe-west1.run.app?format=text" \
   -H "Content-Type: application/json" \
   -d '{"question":"What is the class in Paillier cryptosystem?"}'
@@ -44,7 +43,6 @@ The service also supports a quiz mode. To use it, start the question with /quiz 
 
 Example:
 
-```bash
 curl -s -X POST "https://smartstudy-rag-chat-806559489994.europe-west1.run.app?format=text" \
   -H "Content-Type: application/json" \
   -d '{"question":"/quiz Paillier cryptosystem"}'
