@@ -27,3 +27,24 @@ The following environment variables must be configured in Cloud Run.
 | `GEMINI_PROJECT_ID` | Google Cloud project used for Gemini. |
 | `GEMINI_LOCATION` | Gemini location, e.g. `global`. |
 | `GEMINI_MODEL` | Gemini model, e.g. `gemini-2.5-flash`. |
+
+
+## Using the Chat Service
+
+After deploying the `smartstudy-rag-chat` service, you can ask questions from the terminal using `curl`. The service receives a question, retrieves the most relevant PDF chunks from MongoDB Atlas Vector Search, and uses Gemini to generate an answer with citations.
+
+Example:
+
+```bash
+curl -s -X POST "https://smartstudy-rag-chat-806559489994.europe-west1.run.app?format=text" \
+  -H "Content-Type: application/json" \
+  -d '{"question":"What is the class in Paillier cryptosystem?"}'
+
+The service also supports a quiz mode. To use it, start the question with /quiz followed by the topic. It will retrieve relevant chunks and generate a 5-question quiz with an answer key.
+
+Example:
+
+```bash
+curl -s -X POST "https://smartstudy-rag-chat-806559489994.europe-west1.run.app?format=text" \
+  -H "Content-Type: application/json" \
+  -d '{"question":"/quiz Paillier cryptosystem"}'
