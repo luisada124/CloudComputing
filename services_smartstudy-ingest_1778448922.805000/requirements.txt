@@ -1,0 +1,7 @@
+functions-framework==3.*
+google-cloud-storage==2.*
+pypdf==5.*
+langchain-text-splitters==0.*
+pymongo[srv]==4.*
+certifi==2025.*
+google-cloud-aiplatform==1.*
